@@ -29,7 +29,7 @@ int gSlowPath = 0;
 using hx::gByteMarkID;
 using hx::gRememberedByteMarkID;
 
-// #define HXCPP_SINGLE_THREADED_APP
+#define HXCPP_SINGLE_THREADED_APP
 
 namespace hx
 {
@@ -150,16 +150,7 @@ static size_t sgMaximumFreeSpace  = 1024*1024*1024;
 static bool sGcVerifyGenerational = false;
 #endif
 
-
-#if HX_HAS_ATOMIC && (HXCPP_GC_DEBUG_LEVEL==0) && !defined(HX_GC_VERIFY)
-  #if defined(HX_MACOS) || defined(HX_WINDOWS) || defined(HX_LINUX)
-  enum { MAX_MARK_THREADS = 4 };
-  #else
-  enum { MAX_MARK_THREADS = 2 };
-  #endif
-#else
-  enum { MAX_MARK_THREADS = 1 };
-#endif
+enum { MAX_MARK_THREADS = 1 };
 
 #ifdef PROFILE_THREAD_USAGE
 static int sThreadMarkCountData[MAX_MARK_THREADS+1];
