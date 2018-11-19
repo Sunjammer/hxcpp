@@ -6103,8 +6103,8 @@ void InitAlloc()
 
 void GCPrepareMultiThreaded()
 {
-   if (!hx::gMultiThreadMode)
-      hx::gMultiThreadMode = true;
+   /*if (!hx::gMultiThreadMode)
+      hx::gMultiThreadMode = true;*/
 }
 
 
